@@ -8,22 +8,25 @@ using namespace std;
 
 Date::Date(unsigned short year, unsigned short month, unsigned short day)
 {
-    Year = year;
-    Month = month;
-    Day = day;
+    this -> Year = year;
+    this -> Month = month;
+    this -> Day = day;
 }
 
 unsigned short Date::GetDay(){
-    cout << "Getday()...." << endl;
     return Day;
 }
 
 unsigned short Date::GetMonth(){
-    return this -> Month;
+    return Month;
 }
 
 unsigned short Date::GetYear(){
-    return this -> Year;
+    return Year;
+}
+
+string Date::GetTextForm(){
+    return to_string(Day) + "/" +to_string(Month) + "/" + to_string(Year);
 }
 
 Date::~Date(){}
@@ -36,15 +39,19 @@ Time::Time(unsigned short hour, unsigned short min, unsigned short sec)
 }
 
 unsigned short Time::GetHour(){
-    return this -> Hour;
+    return Hour;
 }
 
 unsigned short Time::GetMin(){
-    return this -> Min;
+    return Min;
 }
 
 unsigned short Time::GetSec(){
-    return this -> Sec;
+    return Sec;
+}
+
+string Time::GetTextForm(){
+    return to_string(Hour) + ":" +to_string(Min) + ":" + to_string(Sec);
 }
 
 Time::~ Time(){}

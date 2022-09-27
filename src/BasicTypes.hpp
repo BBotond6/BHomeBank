@@ -2,6 +2,10 @@
 #ifndef BASICTYPES_HPP
 #define BASICTYPES_HPP
 
+#include <iostream>
+
+using namespace std;
+
 //Class Date Day/Month/Year
 class Date
 {
@@ -15,6 +19,7 @@ public:
     unsigned short GetYear();
     unsigned short GetMonth();
     unsigned short GetDay();
+    string GetTextForm();
 };
 
 
@@ -31,6 +36,7 @@ public:
     unsigned short GetHour();
     unsigned short GetMin();
     unsigned short GetSec();
+    string GetTextForm();
 };
 
 
