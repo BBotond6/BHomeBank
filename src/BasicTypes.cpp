@@ -6,7 +6,16 @@
 using namespace std;
 
 
+Date::Date(){}
+
 Date::Date(unsigned short year, unsigned char month, unsigned char day)
+{
+    this -> Year = year;
+    this -> Month = month;
+    this -> Day = day;
+}
+
+void Date::SetDate(unsigned short year, unsigned char month, unsigned char day)
 {
     this -> Year = year;
     this -> Month = month;
@@ -30,6 +39,8 @@ string Date::GetTextForm(){
 }
 
 Date::~Date(){}
+
+Time::Time(){}
 
 Time::Time(unsigned char hour, unsigned char min, unsigned char sec)
 {

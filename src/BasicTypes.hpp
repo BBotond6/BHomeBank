@@ -15,11 +15,14 @@ private:
     unsigned short Year;
 public:
     Date(unsigned short year, unsigned char month, unsigned char day);
+    Date();
     ~Date(); 
     unsigned short GetYear();
     unsigned char GetMonth();
     unsigned char GetDay();
     string GetTextForm();
+
+    void SetDate(unsigned short year, unsigned char month, unsigned char day);
 };
 
 
@@ -32,6 +35,7 @@ private:
     unsigned char Sec;
 public:
     Time(unsigned char hour, unsigned char min, unsigned char sec);
+    Time();
     ~Time();
     unsigned char GetHour();
     unsigned char GetMin();
