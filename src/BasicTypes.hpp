@@ -10,15 +10,15 @@ using namespace std;
 class Date
 {
 private:
-    unsigned short Day;
-    unsigned short Month;
+    unsigned char Day;
+    unsigned char Month;
     unsigned short Year;
 public:
-    Date(unsigned short year, unsigned short month, unsigned short day);
+    Date(unsigned short year, unsigned char month, unsigned char day);
     ~Date(); 
     unsigned short GetYear();
-    unsigned short GetMonth();
-    unsigned short GetDay();
+    unsigned char GetMonth();
+    unsigned char GetDay();
     string GetTextForm();
 };
 
@@ -27,15 +27,15 @@ public:
 class Time
 {
 private:
-    unsigned short Hour;
-    unsigned short Min;
-    unsigned short Sec;
+    unsigned char Hour;
+    unsigned char Min;
+    unsigned char Sec;
 public:
-    Time(unsigned short hour, unsigned short min, unsigned short sec);
+    Time(unsigned char hour, unsigned char min, unsigned char sec);
     ~Time();
-    unsigned short GetHour();
-    unsigned short GetMin();
-    unsigned short GetSec();
+    unsigned char GetHour();
+    unsigned char GetMin();
+    unsigned char GetSec();
     string GetTextForm();
 };
 

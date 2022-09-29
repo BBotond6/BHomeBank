@@ -6,18 +6,18 @@
 using namespace std;
 
 
-Date::Date(unsigned short year, unsigned short month, unsigned short day)
+Date::Date(unsigned short year, unsigned char month, unsigned char day)
 {
     this -> Year = year;
     this -> Month = month;
     this -> Day = day;
 }
 
-unsigned short Date::GetDay(){
+unsigned char Date::GetDay(){
     return Day;
 }
 
-unsigned short Date::GetMonth(){
+unsigned char Date::GetMonth(){
     return Month;
 }
 
@@ -26,27 +26,27 @@ unsigned short Date::GetYear(){
 }
 
 string Date::GetTextForm(){
-    return to_string(Day) + "/" +to_string(Month) + "/" + to_string(Year);
+    return to_string(Day) + "/" + to_string(Month) + "/" + to_string(Year);
 }
 
 Date::~Date(){}
 
-Time::Time(unsigned short hour, unsigned short min, unsigned short sec)
+Time::Time(unsigned char hour, unsigned char min, unsigned char sec)
 {
     this -> Hour = hour;
     this -> Min = min;
     this -> Sec = sec;
 }
 
-unsigned short Time::GetHour(){
+unsigned char Time::GetHour(){
     return Hour;
 }
 
-unsigned short Time::GetMin(){
+unsigned char Time::GetMin(){
     return Min;
 }
 
-unsigned short Time::GetSec(){
+unsigned char Time::GetSec(){
     return Sec;
 }
 
