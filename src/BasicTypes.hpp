@@ -41,6 +41,8 @@ public:
     unsigned char GetMin();
     unsigned char GetSec();
     string GetTextForm();
+
+    void SetTime(unsigned char hour, unsigned char min, unsigned char sec);
 };
 
 

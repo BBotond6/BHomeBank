@@ -1,35 +1,47 @@
 
 #include "Transaction.hpp"
-#include "BasicTypes.hpp"
-#include <iostream>
 
 using namespace std;
 
 Transaction::Transaction(){}
 
-Transaction::Transaction(unsigned short year,unsigned char month,unsigned char day)
-{
-    this -> Date.SetDate(year,month,day);
-}
-
 Transaction::~Transaction(){}
 
-OtpTransaction::OtpTransaction(){}
-
-OtpTransaction::OtpTransaction(unsigned short year,unsigned char month,
-                        unsigned char day,string comment):
-                        Transaction(year,month,day)
+OtpTransaction::OtpTransaction(string OtpLine)
 {
-    Comment = comment;
-}
+    vector<string> Elements = Split(OtpLine, "\t");
 
-void OtpTransaction::PrintDateComment()
-{
-    cout << Date.GetTextForm() << endl;
+    vector<string> Date = Split(Split(Elements.at(0), " ").at(0), ".");
+    this -> Date.SetDate((unsigned short)stoi(Date.at(0)), (unsigned char)stoi(Date.at(1)), (unsigned char)stoi(Date.at(2)));
+    
+    vector<string> Time = Split(Split(Elements.at(0), " ").at(1), ":");
+    this -> Time.SetTime((unsigned char)stoi(Time.at(0)), (unsigned char)stoi(Time.at(1)), (unsigned char)stoi(Time.at(2)));
+    this -> Amount = stod(RemoveChar(Elements.at(2), '.'));
+
+    this -> Place = Elements.at(3);
+    this -> Comment = Elements.at(4);
 }
 
 OtpTransaction::~OtpTransaction(){}
 
-RevolutTransaction::RevolutTransaction(){}
+RevolutTransaction::RevolutTransaction(string Date, string Place, string TimeComment, string Currency1, string Currency2)
+{
+    string months[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"};
+
+    this -> Date.SetDate((unsigned short)stoi(Split(Date, " ")[2]), (unsigned char)(IndexOf(months, Split(Date, " ")[1], sizeof(months)/sizeof(months[0])) + 1), (unsigned char)stoi(Split(Date, ":")[0]));
+    this -> Place = Place;
+    this -> Time.SetTime((unsigned char)stoi(Split(Split(TimeComment, " ")[0], ":")[0]), (unsigned char)stoi(Split(Split(TimeComment, " ")[0], ":")[1]), 0);
+    if(Split(TimeComment, " ").size() > 1){
+        this -> Comment = TimeComment.substr(8, TimeComment.length() - 8);
+    }else{
+        this -> Comment = "";
+    }
+
+    this -> Amount = stod(Split(Currency1, " ")[0] + RemoveChar(Split(Currency1, " ")[2], ','));
+    this -> Currency1 = Split(Currency1, " ")[1];
+
+    this -> Amount2 = stod(Split(Currency2, " ")[0] + RemoveChar(Split(Currency2, " ")[2], ','));
+    this -> Currency2 = Split(Currency2, " ")[1];
+}
 
 RevolutTransaction::~RevolutTransaction(){}

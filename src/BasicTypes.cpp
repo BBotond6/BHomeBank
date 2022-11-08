@@ -1,8 +1,6 @@
 
 #include "BasicTypes.hpp"
 
-#include <iostream>
-
 using namespace std;
 
 
@@ -43,6 +41,13 @@ Date::~Date(){}
 Time::Time(){}
 
 Time::Time(unsigned char hour, unsigned char min, unsigned char sec)
+{
+    this -> Hour = hour;
+    this -> Min = min;
+    this -> Sec = sec;
+}
+
+void Time::SetTime(unsigned char hour, unsigned char min, unsigned char sec)
 {
     this -> Hour = hour;
     this -> Min = min;

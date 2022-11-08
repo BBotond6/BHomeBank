@@ -3,6 +3,10 @@
 #define TRANSACTION_HPP 
 
 #include "BasicTypes.hpp"
+#include "BasicFunctions.hpp"
+
+#include <iostream>
+#include <vector>
 
 class Transaction
 {
@@ -13,7 +17,6 @@ protected:
     string Place;
 public:
     Transaction();
-    Transaction(unsigned short year,unsigned char month,unsigned char day);
     ~Transaction();
 };
 
@@ -23,19 +26,19 @@ class OtpTransaction : public Transaction
         unsigned char Mode;
         string Comment;
     public:
-        OtpTransaction();
-        OtpTransaction(unsigned short year,unsigned char month,unsigned char day,
-                        string comment);
+        OtpTransaction(string OtpLine);
         ~OtpTransaction();
-        void PrintDateComment();
 };
 
 class RevolutTransaction : public Transaction
 {
     private:
-        string Currency;
+        string Currency1;
+        string Currency2;
+        double Amount2;
+        string Comment;
     public:
-        RevolutTransaction();
+        RevolutTransaction(string Date, string Place, string TimeComment, string Currency1, string Currency2);
         ~RevolutTransaction();
 };
 
