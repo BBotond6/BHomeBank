@@ -5,6 +5,14 @@ using namespace std;
 
 Transaction::Transaction(){}
 
+void Transaction::PrintDatas()
+{
+    cout << "Date: " << Date.GetTextForm() << endl;
+    cout << "Time: " << Time.GetTextForm() << endl;
+    cout << "Amount: " << Amount << endl;
+    cout << "Place: " << Place << endl;
+}
+
 Transaction::~Transaction(){}
 
 OtpTransaction::OtpTransaction(string OtpLine)
@@ -20,6 +28,16 @@ OtpTransaction::OtpTransaction(string OtpLine)
 
     this -> Place = Elements.at(3);
     this -> Comment = Elements.at(4);
+}
+
+void OtpTransaction::PrintDatas()
+{
+    cout << "Date: " << Date.GetTextForm() << endl;
+    cout << "Time: " << Time.GetTextForm() << endl;
+    cout << "Amount: " << Amount << endl;
+    cout << "Place: " << Place << endl;
+    cout << "Mode: " << Mode << endl;
+    cout << "Comment: " << Comment << endl;
 }
 
 OtpTransaction::~OtpTransaction(){}
@@ -42,6 +60,18 @@ RevolutTransaction::RevolutTransaction(string Date, string Place, string TimeCom
 
     this -> Amount2 = stod(Split(Currency2, " ")[0] + RemoveChar(Split(Currency2, " ")[2], ','));
     this -> Currency2 = Split(Currency2, " ")[1];
+}
+
+void RevolutTransaction::PrintDatas()
+{
+    cout << "Date: " << Date.GetTextForm() << endl;
+    cout << "Time: " << Time.GetTextForm() << endl;
+    cout << "Amount: " << Amount << endl;
+    cout << "Place: " << Place << endl;
+    cout << "Currency1: " << Currency1 << endl;
+    cout << "Currency2: " << Currency2 << endl;
+    cout << "Amount2: " << Amount2 << endl;
+    cout << "Comment: " << Comment << endl;
 }
 
 RevolutTransaction::~RevolutTransaction(){}

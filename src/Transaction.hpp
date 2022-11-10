@@ -18,6 +18,7 @@ protected:
 public:
     Transaction();
     ~Transaction();
+    virtual void PrintDatas();
 };
 
 class OtpTransaction : public Transaction
@@ -28,6 +29,7 @@ class OtpTransaction : public Transaction
     public:
         OtpTransaction(string OtpLine);
         ~OtpTransaction();
+        void PrintDatas();
 };
 
 class RevolutTransaction : public Transaction
@@ -40,6 +42,7 @@ class RevolutTransaction : public Transaction
     public:
         RevolutTransaction(string Date, string Place, string TimeComment, string Currency1, string Currency2);
         ~RevolutTransaction();
+        void PrintDatas();
 };
 
 #endif //TRANSACTION_HPP
