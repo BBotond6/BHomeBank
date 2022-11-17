@@ -39,6 +39,7 @@ class RevolutTransaction : public Transaction
         string Currency2;
         double Amount2;
         string Comment;
+        bool Success;
     public:
         RevolutTransaction(string Date, string Place, string TimeComment, string Currency1, string Currency2);
         ~RevolutTransaction();

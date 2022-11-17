@@ -13,7 +13,7 @@ using namespace std;
 void ReadTransactions(string File, vector<Transaction*> *Destination);
 
 //Read Otp transactions from a txt file
-vector<Transaction*> ReadOtpTransaction(string File);
+vector<Transaction*> ReadOtpTransaction(string TxtFile);
 
 //Read Revolut transactions from a txt file
 vector<Transaction*> ReadRevolutTransaction(string TxtFile);

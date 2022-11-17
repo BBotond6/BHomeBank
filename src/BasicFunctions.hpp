@@ -15,7 +15,10 @@ int IndexOf(string Input[], string Element, int length);
 //Remove char from a string
 string RemoveChar(string str, char c);
 
-//Change the hungarian characters to english in the input string
+//Change the foreign characters to english in the input string
 string GetEnglishForm(string Input);
+
+//Check that the input string is a number
+bool IsNumber(string Input);
 
 #endif //BASICFUNCTIONS_HPP
